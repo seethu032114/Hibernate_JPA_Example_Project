@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.jpa.hibernate.example.entity.Course;
 import com.jpa.hibernate.example.repository.CourseRepository;
+import com.jpa.hibernate.example.repository.StudentRepository;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
@@ -16,7 +17,10 @@ public class DemoApplication implements CommandLineRunner{
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
-	private CourseRepository repository;
+	private CourseRepository courseRepository;
+	
+	@Autowired
+	private StudentRepository studentRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
@@ -25,12 +29,14 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Course course=repository.findById(1001);
-		logger.info("Course 1001: {}" , course);
-		
-		repository.save(new Course("MicroServices in 100 steps"));
+//		Course course=repository.findById(1001);
+//		logger.info("Course 1001: {}" , course);
+//		
+//		repository.save(new Course("MicroServices in 100 steps"));
 		
 //		repository.deleteById(1002);
+		
+		studentRepository.saveStudentWithPassport();
 		
 	}
 

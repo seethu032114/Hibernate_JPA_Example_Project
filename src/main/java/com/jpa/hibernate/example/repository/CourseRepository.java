@@ -15,8 +15,6 @@ public class CourseRepository {
 	@Autowired
 	private EntityManager em;
 	
-	System.out.println("Hello All...");
-	
 	public Course findById(int id) {
 		return em.find(Course.class, id);
 	}
