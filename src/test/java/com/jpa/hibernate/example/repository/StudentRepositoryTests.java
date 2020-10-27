@@ -14,12 +14,12 @@ import com.jpa.hibernate.example.entity.Student;
 
 @SpringBootTest
 class StudentRepositoryTests {
-	
+
 	Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	StudentRepository studentRepository;
-	
+
 	@Autowired
 	EntityManager em;
 
@@ -30,8 +30,7 @@ class StudentRepositoryTests {
 		logger.info("Student info : {}", student);
 		logger.info("Passport info : {}", student.getPassport());
 	}
-	
-	
+
 	@Test
 	@Transactional
 	public void retrieveStudentDetailsAssociatedToPassport() {
@@ -39,5 +38,5 @@ class StudentRepositoryTests {
 		logger.info("Passport info : {}", passport);
 		logger.info("Student info : {}", passport.getStudent());
 	}
-	
+
 }
