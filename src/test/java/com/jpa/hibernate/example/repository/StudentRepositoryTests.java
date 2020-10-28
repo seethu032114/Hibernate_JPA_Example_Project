@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jpa.hibernate.example.entity.Course;
 import com.jpa.hibernate.example.entity.Passport;
 import com.jpa.hibernate.example.entity.Student;
 
@@ -37,6 +38,22 @@ class StudentRepositoryTests {
 		Passport passport = em.find(Passport.class, 3001);
 		logger.info("Passport info : {}", passport);
 		logger.info("Student info : {}", passport.getStudent());
+	}
+	
+	@Test
+	@Transactional
+	public void retrieveStudentAndCourses() {
+		Student student = em.find(Student.class, 2001);
+		logger.info("Student info : {}", student);
+		logger.info("Student info : {}", student.getCourses());
+	}
+	
+	@Test
+	@Transactional
+	public void retrieveCourseAndStudents() {
+		Course course = em.find(Course.class, 1001);
+		logger.info("Course info : {}", course);
+		logger.info("Course info : {}", course.getStudents());
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.jpa.hibernate.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.jpa.hibernate.example.entity.Course;
+import com.jpa.hibernate.example.entity.Review;
 import com.jpa.hibernate.example.repository.CourseRepository;
 import com.jpa.hibernate.example.repository.StudentRepository;
 
@@ -36,7 +39,17 @@ public class DemoApplication implements CommandLineRunner{
 		
 //		repository.deleteById(1002);
 		
-		studentRepository.saveStudentWithPassport();
+//		studentRepository.saveStudentWithPassport();
+		
+//		courseRepository.addHardCodedReviewForCourse();
+		
+//		List<Review> reviews = new ArrayList<>();
+//		reviews.add(new Review("5", "Cool"));
+//		reviews.add(new Review("4", "Okay"));
+//
+//		courseRepository.addReviewForCourse(1002, reviews);
+		
+		studentRepository.insertHardCodedStudentAndCourse();
 		
 	}
 
